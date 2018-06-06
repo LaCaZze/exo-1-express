@@ -27,3 +27,4 @@ jQuery(document).ready(function () {
 });
 
 //TO DO : reprendre ce qui est retourné par le success et l'utiliser dans un each()
+// ou faire une boucle for pour reccupéré la class list pour afficher la liste
