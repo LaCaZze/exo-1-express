@@ -1,27 +1,16 @@
 jQuery(document).ready(function () {
-    
 
+    $.ajax({    
+        url: 'http://localhost:3666/liste', // La ressource ciblée
+        type: 'GET', //type de requette. Ici un port n'a pas de sens on a rien a envoyer au sreveur
+        //GET type par défaut, normalement pas besoin de le préciser
 
-    $("#more_com").click(function () {
-
-        $.ajax({
-            url: 'http://localhost:3666/liste', // La ressource ciblée
-            type: 'GET', //type de requette. Ici un port n'a pas de sens on a rien a envoyer au sreveur
-            //GET type par défaut, normalement pas besoin de le préciser
-            dataType: JSON,
-            success: function (index_html, statut) {
-
-            },
-
-            error: function (resultat, statut, erreur) {
-
-            },
-
-            complete: function (resultat, statut) {
-
+        success: function (data) {
+            for(var id in data){
+                $('#recuperation').append('<li>' + data[id].name.first + ' ' + data[id].name.last + '</li>')
+                console.log(data[id].name.first + ' '+ data[id].name.last);
             }
-        });
-
+        }
     });
 
 });
